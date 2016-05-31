@@ -19,8 +19,8 @@
     </section>
 
     <section class="main-content">
-      <h3>
-<a id="httpfilerequest" class="anchor" href="#httpfilerequest" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>HttpFileRequest</h3>
+      <h1>
+<a id="httpfilerequest" class="anchor" href="#httpfilerequest" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>HttpFileRequest</h1>
 
 <p>A library for upload file on android easily. </p>
 
@@ -56,8 +56,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        File file = new File(Environment.getExternalStorageDirectory()+"/"+Environment.DIRECTORY_DOWNLOADS+"/small.mp4");
-        HttpFileRequest request = new HttpFileRequest(this, "YOUR URL", file,"file", new HttpFileRequest.Listener() {
+        File file = new File(Environment.getExternalStorageDirectory()+"/"+Environment.DIRECTORY_DOWNLOADS+"/user-image.png");
+        HttpFileRequest request = new HttpFileRequest
+                            (this,                  // context
+                            "YOUR URL",             // url
+                            file,                   // file instance holding path of file.
+                            "user-image",   // name attribute like in HTML input name="user-image" 
+                            new HttpFileRequest.Listener() {
             @Override
             public void onResponse(Response response) {
                 Log.d("FILE REQ",response.body);
