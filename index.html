@@ -24,6 +24,57 @@
 
 <p>A library for upload file on android easily. </p>
 
+<h1>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h1>
+
+<h3>
+<a id="add-these-lines-to-buildgradle" class="anchor" href="#add-these-lines-to-buildgradle" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>add these lines to build.gradle</h3>
+
+<pre><code>repositories {
+    maven {
+        url 'https://dl.bintray.com/farhanahmed95/maven/'
+    }
+}
+dependencies {
+    compile 'com.github.farhanahmed95:httpfilerequest:0.0.1@aar'
+}
+
+</code></pre>
+
+<h3>
+<a id="add-permissions-to-androidmanifestxml" class="anchor" href="#add-permissions-to-androidmanifestxml" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>add permissions to AndroidManifest.xml</h3>
+
+<pre><code>&lt;uses-permission android:name="android.permission.INTERNET"/&gt;
+&lt;uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/&gt;
+</code></pre>
+
+<pre>
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        File file = new File(Environment.getExternalStorageDirectory()+"/"+Environment.DIRECTORY_DOWNLOADS+"/small.mp4");
+        HttpFileRequest request = new HttpFileRequest(this, "YOUR URL", file,"file", new HttpFileRequest.Listener() {
+            @Override
+            public void onResponse(Response response) {
+                Log.d("FILE REQ",response.body);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                Log.e("FILE REQ",e.getMessage() + " "+e.getClass().getSimpleName());
+
+            }
+        });
+
+        request.exec();
+    }
+}
+</pre>
+
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
