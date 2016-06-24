@@ -22,7 +22,7 @@
       <h1>
 <a id="httpfilerequest" class="anchor" href="#httpfilerequest" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>HttpFileRequest</h1>
 
-<p>A library for upload file on android easily. </p>
+<p>Android File uploading library</p>
 
 <h1>
 <a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h1>
@@ -36,7 +36,7 @@
     }
 }
 dependencies {
-    compile 'com.github.farhanahmed95:httpfilerequest:0.0.1@aar'
+    compile 'com.github.farhanahmed95:httpfilerequest:0.0.2@aar'
 }
 
 </code></pre>
@@ -48,13 +48,10 @@ dependencies {
 &lt;uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/&gt;
 </code></pre>
 
-<pre>
-public class MainActivity extends AppCompatActivity {
+<h4>
+<a id="basic-single-file-request" class="anchor" href="#basic-single-file-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic single file request</h4>
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+<pre>
 
         File file = new File(Environment.getExternalStorageDirectory()+"/"+Environment.DIRECTORY_DOWNLOADS+"/user-image.png");
         HttpFileRequest request = new HttpFileRequest
@@ -76,14 +73,31 @@ public class MainActivity extends AppCompatActivity {
         });
 
         request.exec();
-    }
-}
 </pre>
 
-<h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<h4>
+<a id="multiple-file-request" class="anchor" href="#multiple-file-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Multiple file request</h4>
 
-<p>farhanahmed95</p>
+<pre>
+        File file [] = new File[2];
+        file[0] = new File(Environment.getExternalStorageDirectory()+"/"+Environment.DIRECTORY_DOWNLOADS+"/W04.pdf");
+        file[1] = new File(Environment.getExternalStorageDirectory()+"/"+Environment.DIRECTORY_DOWNLOADS+"/W05.pdf");
+
+        MultipleHttpFileRequest request = new MultipleHttpFileRequest(this, "URL", "NAME","ARRAY OF FILE OBJECTS", new MultipleHttpFileRequest.Listener() {
+            @Override
+            public void onResponse(Response response) {
+                Log.d("FILE REQ",response.body);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                Log.e("FILE REQ",e.getMessage() + " "+e.getClass().getSimpleName());
+
+            }
+        });
+
+        request.exec();
+</pre>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/farhanahmed95/HttpFileRequest">Httpfilerequest</a> is maintained by <a href="https://github.com/farhanahmed95">farhanahmed95</a>.</span>
