@@ -9,7 +9,7 @@ repositories {
     }
 }
 dependencies {
-    compile 'com.github.farhanahmed95:httpfilerequest:0.0.2@aar'
+    compile 'com.github.farhanahmed95:httpfilerequest:0.0.3@aar'
 }
 
 ```
@@ -38,7 +38,14 @@ dependencies {
                 Log.e("FILE REQ",e.getMessage() + " "+e.getClass().getSimpleName());
 
             }
-        });
+        }){
+            @Override
+            public Map<String, String> getParams() {
+                HashMap<String,String> map = new HashMap<>();
+                map.put("age","21");
+                return map;
+            }
+        };
 
         request.exec();
 </pre>
@@ -59,7 +66,14 @@ dependencies {
                 Log.e("FILE REQ",e.getMessage() + " "+e.getClass().getSimpleName());
 
             }
-        });
+        }){
+            @Override
+            public Map<String, String> getParams() {
+                HashMap<String,String> map = new HashMap<>(); // you can send params with file request
+                map.put("age","21");
+                return map;
+            }
+        };
 
         request.exec();
 </pre>
