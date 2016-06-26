@@ -40,9 +40,9 @@ dependencies {
             }
         }){
             @Override
-            public Map<String, String> getParams() {
-                HashMap<String,String> map = new HashMap<>();
-                map.put("age","21");
+            public Map<String, String> getParams() {        // you can send params with file request
+                HashMap<String,String> map = new HashMap<>(); 
+                map.put("desc","my notes");
                 return map;
             }
         };
@@ -68,9 +68,9 @@ dependencies {
             }
         }){
             @Override
-            public Map<String, String> getParams() {
-                HashMap<String,String> map = new HashMap<>(); // you can send params with file request
-                map.put("age","21");
+            public Map<String, String> getParams() {        // you can send params with file request
+                HashMap<String,String> map = new HashMap<>(); 
+                map.put("desc","my notes");
                 return map;
             }
         };
