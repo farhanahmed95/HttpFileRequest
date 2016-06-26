@@ -9,7 +9,7 @@ repositories {
     }
 }
 dependencies {
-    compile 'com.github.farhanahmed95:httpfilerequest:0.0.3@aar'
+    compile 'com.github.farhanahmed95:httpfilerequest:0.0.4@aar'
 }
 
 ```
