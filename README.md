@@ -1,5 +1,5 @@
 # HttpFileRequest
-Android File uploading library
+Android simple form data uploading library
 <br/>
 ## add these lines to build.gradle
 ```
