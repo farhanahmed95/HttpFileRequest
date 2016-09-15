@@ -9,7 +9,7 @@ repositories {
     }
 }
 dependencies {
-    compile('com.github.farhanahmed95:httpfilerequest:0.1.8@aar') {
+    compile('com.github.farhanahmed95:httpfilerequest:2.0.1@aar') {
         transitive = true;
     }
 }
@@ -21,63 +21,27 @@ dependencies {
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 ```
 ## Making request
-### Creating FileAttachment instance or array of FileAttachment 
-```
-File imageFile = ...;
-FileAttachment imageAttachment  = new FileAttachment("image",imageFile);
-```
+
 ### Setting up request
 ```
-HttpFileRequest fileRequest = new HttpFileRequest(this,"< URL >",new HttpFileRequest.Listener() {
-            @Override
-            public void onResponse(final Response response) {
-                
-            }
+new HttpFileRequest()
+    .url("http://192.168.1.8")
+    .add("file name", fileObject1)
+    .add...
+    .add...
+    .setParams(new HashMap<String, String>())
+    .listener(new ListenerAdapter() {
+        @Override
+        public void onResponse(Response response) {
+            Log.d("onResponse", response.body);
+        }
 
-            @Override
-            public void onErrorResponse(Response response) {
-
-            }
-
-            @Override
-            public void onError(Exception e) {
-            }
-
-            @Override
-            public void onProgress(int progress) {
-
-            }
-        },imageAttachment ) {
-
-            @Override
-            public Map<String, String> getParams() {
-                HashMap<String, String> params = new HashMap<>();
-                params.put("...","...")
-                ...
-                ...
-                return params;
-            }
-
-            @Override
-            protected TimeoutPolicy getTimeoutPolicy() {
-                return new TimeoutPolicy() {
-                    @Override
-                    public int connectTimeout() {
-                        return 20000;
-                    }
-
-                    @Override
-                    public int readTimeout() {
-                        return 20000;
-                    }
-                };
-            }
-        };
-```
-### Executing request
-```
-fileRequest.exec();
-
+        @Override
+        public void onProgress(int progress) {
+            Log.d("onProgress", progress + "");
+        }
+    })
+    .run();
 ```
 <br/>
 <br/>
