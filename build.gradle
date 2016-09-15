@@ -19,8 +19,10 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile files('libs/commons-io-2.5.jar')
+    compile ('com.squareup.okhttp3:okhttp:3.3.1')
+    compile group: 'commons-io', name: 'commons-io', version: '2.5'
+    compile 'com.google.guava:guava:19.0'
+
 }
 ext {
     bintrayRepo = 'maven'
@@ -35,7 +37,7 @@ ext {
     siteUrl = 'https://github.com/farhanahmed95/HttpFileRequest'
     gitUrl = 'https://github.com/farhanahmed95/HttpFileRequest.git'
 
-    libraryVersion = '0.0.2'
+    libraryVersion = '2.0.2'
 
     developerId = 'farhanahmed95'
     developerName = 'Farhan Ahmed'
