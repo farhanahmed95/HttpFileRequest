@@ -1,7 +1,7 @@
 # HttpFileRequest
 Android File uploading library
 <br/>
-### add these lines to build.gradle
+## add these lines to build.gradle
 ```
 repositories {
     maven {
@@ -15,16 +15,19 @@ dependencies {
 }
 
 ```
-### add permissions to AndroidManifest.xml
+## add permissions to AndroidManifest.xml
 ```
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 ```
-### Making request
+## Making request
+### Creating FileAttachment instance or array of FileAttachment 
 ```
 File imageFile = ...;
 FileAttachment imageAttachment  = new FileAttachment("image",imageFile);
-
+```
+### Setting up request
+```
 HttpFileRequest fileRequest = new HttpFileRequest(this,"< URL >",new HttpFileRequest.Listener() {
             @Override
             public void onResponse(final Response response) {
@@ -44,7 +47,7 @@ HttpFileRequest fileRequest = new HttpFileRequest(this,"< URL >",new HttpFileReq
             public void onProgress(int progress) {
 
             }
-        },attachment ) {
+        },imageAttachment ) {
 
             @Override
             public Map<String, String> getParams() {
@@ -70,6 +73,9 @@ HttpFileRequest fileRequest = new HttpFileRequest(this,"< URL >",new HttpFileReq
                 };
             }
         };
+```
+### Executing request
+```
 fileRequest.exec();
 
 ```
