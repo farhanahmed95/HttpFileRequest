@@ -25,7 +25,7 @@ dependencies {
 ### Setting up request
 ```
 new HttpFileRequest()
-    .url("http://192.168.1.8")
+    .url("< URL >")
     .add("file name", fileObject1)
     .add...
     .add...
