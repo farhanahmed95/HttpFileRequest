@@ -2,7 +2,7 @@
 Android simple form data uploading library
 <br/>
 ## add these lines to build.gradle
-```
+```gradle
 repositories {
     maven {
         url 'https://dl.bintray.com/farhanahmed95/maven/'
@@ -16,14 +16,14 @@ dependencies {
 
 ```
 ## add permissions to AndroidManifest.xml
-```
+```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 ```
 ## Making request
 
 ### Setting up request
-```
+```java
 new HttpFileRequest()
     .url("< URL >")
     .add("file name", fileObject1)
