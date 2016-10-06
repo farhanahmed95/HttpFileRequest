@@ -46,7 +46,8 @@ new HttpFileRequest()
 ### All listener methods
 ```java
 public interface Listener {
-    void onResponse(com.farhanahmed.httpfilerequest.Response response);
+
+    void onResponse(Response response);
 
     void onErrorResponse(Response response);
 
