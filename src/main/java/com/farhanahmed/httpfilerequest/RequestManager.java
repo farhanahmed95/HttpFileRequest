@@ -42,7 +42,8 @@ public class RequestManager implements Request{
 
     @Override
     public Request setParams(Map<String, String> formData) {
-        return null;
+        this.formData = formData;
+        return this;
     }
 
     @Override
