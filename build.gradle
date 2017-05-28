@@ -19,9 +19,9 @@ android {
 }
 
 dependencies {
-    compile ('com.squareup.okhttp3:okhttp:3.3.1')
+    compile 'com.squareup.okhttp3:okhttp:3.8.0'
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
-    compile 'com.google.guava:guava:19.0'
+    compile 'com.google.guava:guava:20.0'
 
 }
 ext {
@@ -37,7 +37,7 @@ ext {
     siteUrl = 'https://github.com/farhanahmed95/HttpFileRequest'
     gitUrl = 'https://github.com/farhanahmed95/HttpFileRequest.git'
 
-    libraryVersion = '2.0.2'
+    libraryVersion = '2.0.3'
 
     developerId = 'farhanahmed95'
     developerName = 'Farhan Ahmed'
